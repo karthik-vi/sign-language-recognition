@@ -1,0 +1,1107 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "summary": {
+    "V0": {
+      "desc": "baseline: raw image coords, NaN->0, no aug",
+      "test_top1_mean": 0.4533333333333333,
+      "test_top1_std": 0.030912061651652344,
+      "test_top5_mean": 0.7933333333333333,
+      "val_top1_mean": 0.49488752556237214,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V1": {
+      "desc": "+ body-centred normalisation",
+      "test_top1_mean": 0.5566666666666668,
+      "test_top1_std": 0.004714045207910321,
+      "test_top5_mean": 0.8066666666666666,
+      "val_top1_mean": 0.5153374233128835,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V2": {
+      "desc": "+ hand-local shape coords",
+      "test_top1_mean": 0.6166666666666667,
+      "test_top1_std": 0.012472191289246483,
+      "test_top5_mean": 0.8733333333333334,
+      "val_top1_mean": 0.6298568507157465,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V3": {
+      "desc": "+ gap interpolation + median smoothing",
+      "test_top1_mean": 0.6433333333333334,
+      "test_top1_std": 0.009428090415820642,
+      "test_top5_mean": 0.8533333333333334,
+      "val_top1_mean": 0.6114519427402864,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V4": {
+      "desc": "+ idle trim + dominant-hand mirroring",
+      "test_top1_mean": 0.6733333333333333,
+      "test_top1_std": 0.020548046676563226,
+      "test_top5_mean": 0.86,
+      "val_top1_mean": 0.6012269938650306,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V5": {
+      "desc": "+ velocity features",
+      "test_top1_mean": 0.6566666666666667,
+      "test_top1_std": 0.02867441755680874,
+      "test_top5_mean": 0.85,
+      "val_top1_mean": 0.6073619631901841,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V6": {
+      "desc": "+ augmentation (affine, temporal crop, hand dropout)",
+      "test_top1_mean": 0.66,
+      "test_top1_std": 0.014142135623730965,
+      "test_top5_mean": 0.8666666666666667,
+      "val_top1_mean": 0.6666666666666666,
+      "n_test": 100,
+      "n_train": 744
+    },
+    "V7": {
+      "desc": "+ drop consistency-flagged TRAIN clips",
+      "test_top1_mean": 0.6633333333333334,
+      "test_top1_std": 0.004714045207910321,
+      "test_top5_mean": 0.87,
+      "val_top1_mean": 0.6380368098159509,
+      "n_test": 100,
+      "n_train": 713
+    }
+  },
+  "runs": {
+    "V0": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": false,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 51,
+        "epochs_run": 82,
+        "val": {
+          "n": 163,
+          "top1": 0.4785276073619632,
+          "top5": 0.7852760736196319
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.41,
+          "top5": 0.75
+        },
+        "train_s": 344.2
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": false,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 67,
+        "epochs_run": 98,
+        "val": {
+          "n": 163,
+          "top1": 0.49693251533742333,
+          "top5": 0.754601226993865
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.47,
+          "top5": 0.81
+        },
+        "train_s": 393.0
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": false,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 95,
+        "epochs_run": 120,
+        "val": {
+          "n": 163,
+          "top1": 0.50920245398773,
+          "top5": 0.7730061349693251
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.48,
+          "top5": 0.82
+        },
+        "train_s": 474.7
+      }
+    },
+    "V1": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 51,
+        "epochs_run": 82,
+        "val": {
+          "n": 163,
+          "top1": 0.50920245398773,
+          "top5": 0.7914110429447853
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.56,
+          "top5": 0.81
+        },
+        "train_s": 340.9
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 41,
+        "epochs_run": 72,
+        "val": {
+          "n": 163,
+          "top1": 0.49079754601226994,
+          "top5": 0.803680981595092
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.55,
+          "top5": 0.81
+        },
+        "train_s": 265.3
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": false,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 61,
+        "epochs_run": 92,
+        "val": {
+          "n": 163,
+          "top1": 0.5460122699386503,
+          "top5": 0.8282208588957055
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.56,
+          "top5": 0.8
+        },
+        "train_s": 331.6
+      }
+    },
+    "V2": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 68,
+        "epochs_run": 99,
+        "val": {
+          "n": 163,
+          "top1": 0.6257668711656442,
+          "top5": 0.8220858895705522
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.63,
+          "top5": 0.86
+        },
+        "train_s": 360.5
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 73,
+        "epochs_run": 104,
+        "val": {
+          "n": 163,
+          "top1": 0.6319018404907976,
+          "top5": 0.8159509202453987
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.62,
+          "top5": 0.87
+        },
+        "train_s": 374.4
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": false,
+          "max_gap": 8,
+          "smooth": false,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 68,
+        "epochs_run": 99,
+        "val": {
+          "n": 163,
+          "top1": 0.6319018404907976,
+          "top5": 0.8282208588957055
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.6,
+          "top5": 0.89
+        },
+        "train_s": 335.8
+      }
+    },
+    "V3": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 66,
+        "epochs_run": 97,
+        "val": {
+          "n": 163,
+          "top1": 0.6196319018404908,
+          "top5": 0.8220858895705522
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.63,
+          "top5": 0.85
+        },
+        "train_s": 311.1
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 61,
+        "epochs_run": 92,
+        "val": {
+          "n": 163,
+          "top1": 0.6073619631901841,
+          "top5": 0.8098159509202454
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.65,
+          "top5": 0.85
+        },
+        "train_s": 276.3
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": false,
+          "dominant": false,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 73,
+        "epochs_run": 104,
+        "val": {
+          "n": 163,
+          "top1": 0.6073619631901841,
+          "top5": 0.8220858895705522
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.65,
+          "top5": 0.86
+        },
+        "train_s": 276.3
+      }
+    },
+    "V4": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 73,
+        "epochs_run": 104,
+        "val": {
+          "n": 163,
+          "top1": 0.6073619631901841,
+          "top5": 0.8404907975460123
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.7,
+          "top5": 0.87
+        },
+        "train_s": 265.2
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 61,
+        "epochs_run": 92,
+        "val": {
+          "n": 163,
+          "top1": 0.5828220858895705,
+          "top5": 0.8466257668711656
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.65,
+          "top5": 0.85
+        },
+        "train_s": 234.0
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": false
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 66,
+        "epochs_run": 97,
+        "val": {
+          "n": 163,
+          "top1": 0.6134969325153374,
+          "top5": 0.8588957055214724
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.67,
+          "top5": 0.86
+        },
+        "train_s": 245.6
+      }
+    },
+    "V5": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 67,
+        "epochs_run": 98,
+        "val": {
+          "n": 163,
+          "top1": 0.6257668711656442,
+          "top5": 0.8343558282208589
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.69,
+          "top5": 0.85
+        },
+        "train_s": 267.8
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 71,
+        "epochs_run": 102,
+        "val": {
+          "n": 163,
+          "top1": 0.6012269938650306,
+          "top5": 0.8711656441717791
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.66,
+          "top5": 0.83
+        },
+        "train_s": 282.7
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": false,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 73,
+        "epochs_run": 104,
+        "val": {
+          "n": 163,
+          "top1": 0.5950920245398773,
+          "top5": 0.8282208588957055
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.62,
+          "top5": 0.87
+        },
+        "train_s": 292.5
+      }
+    },
+    "V6": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": false,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 94,
+        "epochs_run": 120,
+        "val": {
+          "n": 163,
+          "top1": 0.6687116564417178,
+          "top5": 0.8404907975460123
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.65,
+          "top5": 0.84
+        },
+        "train_s": 1050.3
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": false,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 66,
+        "epochs_run": 97,
+        "val": {
+          "n": 163,
+          "top1": 0.656441717791411,
+          "top5": 0.8773006134969326
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.65,
+          "top5": 0.86
+        },
+        "train_s": 840.5
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": false,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 744,
+        "n_train_excluded_by_flags": 0,
+        "n_classes": 100,
+        "best_val_epoch": 86,
+        "epochs_run": 117,
+        "val": {
+          "n": 163,
+          "top1": 0.6748466257668712,
+          "top5": 0.8773006134969326
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.68,
+          "top5": 0.9
+        },
+        "train_s": 997.6
+      }
+    },
+    "V7": {
+      "0": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": true,
+          "seed": 0,
+          "patience": 30
+        },
+        "n_train": 713,
+        "n_train_excluded_by_flags": 31,
+        "n_classes": 100,
+        "best_val_epoch": 77,
+        "epochs_run": 108,
+        "val": {
+          "n": 163,
+          "top1": 0.656441717791411,
+          "top5": 0.8650306748466258
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.66,
+          "top5": 0.87
+        },
+        "train_s": 903.2
+      },
+      "1": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": true,
+          "seed": 1,
+          "patience": 30
+        },
+        "n_train": 713,
+        "n_train_excluded_by_flags": 31,
+        "n_classes": 100,
+        "best_val_epoch": 87,
+        "epochs_run": 118,
+        "val": {
+          "n": 163,
+          "top1": 0.6073619631901841,
+          "top5": 0.8834355828220859
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.66,
+          "top5": 0.87
+        },
+        "train_s": 907.5
+      },
+      "2": {
+        "feature_config": {
+          "T": 32,
+          "normalize": true,
+          "hand_local": true,
+          "interpolate": true,
+          "max_gap": 8,
+          "smooth": true,
+          "trim_idle": true,
+          "dominant": true,
+          "velocity": true
+        },
+        "train_config": {
+          "epochs": 120,
+          "batch_size": 32,
+          "lr": 0.002,
+          "weight_decay": 0.01,
+          "label_smoothing": 0.1,
+          "hidden": 128,
+          "dropout": 0.3,
+          "augment": true,
+          "exclude_flagged_train": true,
+          "seed": 2,
+          "patience": 30
+        },
+        "n_train": 713,
+        "n_train_excluded_by_flags": 31,
+        "n_classes": 100,
+        "best_val_epoch": 102,
+        "epochs_run": 120,
+        "val": {
+          "n": 163,
+          "top1": 0.6503067484662577,
+          "top5": 0.8650306748466258
+        },
+        "test": {
+          "n": 100,
+          "top1": 0.67,
+          "top5": 0.87
+        },
+        "train_s": 902.8
+      }
+    }
+  }
+}

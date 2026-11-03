@@ -19,7 +19,10 @@ import numpy as np
 
 MIN_FRAMES = 12
 JUMP_SW = 1.0
-MAX_NOHAND_FRAC = 0.9
+# v2 thresholds, set from the observed distribution on WLASL100 (v1 = 0.9 / >3 jumps flagged nothing):
+# nohand p90 = 0.61, wrist jitter p90 = 0.075 shoulder widths
+MAX_NOHAND_FRAC = 0.75
+MAX_JITTER_SW = 0.12
 
 
 def tracking_stats(s: dict) -> dict:
@@ -103,8 +106,12 @@ def check_dataset(manifest: list[dict], samples: dict[str, dict], vocab: list[st
             flags[vid].append("pose_mostly_missing")
         if st["nohand_frac"] > MAX_NOHAND_FRAC:
             flags[vid].append("hands_mostly_missing")
-        if st["wrist_jumps"] > 3:
+        if st["wrist_jumps"] >= 1:
             flags[vid].append("wrist_jumps")
+        if st["wrist_jitter_sw"] is not None and st["wrist_jitter_sw"] > MAX_JITTER_SW:
+            flags[vid].append("high_jitter")
+        if st["lhand_missing_frac"] == 1.0 and st["rhand_missing_frac"] == 1.0:
+            flags[vid].append("no_hand_ever_detected")
     report["flag_counts"] = dict(Counter(f for fs in flags.values() for f in fs))
     report["n_flagged"] = len(flags)
     agg = defaultdict(list)

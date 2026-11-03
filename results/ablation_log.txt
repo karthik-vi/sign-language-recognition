@@ -1,0 +1,32 @@
+V0 seed=0 val=0.479 test_top1=0.410 test_top5=0.750 ep=82 344.2s
+V0 seed=1 val=0.497 test_top1=0.470 test_top5=0.810 ep=98 393.0s
+V0 seed=2 val=0.509 test_top1=0.480 test_top5=0.820 ep=120 474.7s
+V1 seed=0 val=0.509 test_top1=0.560 test_top5=0.810 ep=82 340.9s
+V1 seed=1 val=0.491 test_top1=0.550 test_top5=0.810 ep=72 265.3s
+V1 seed=2 val=0.546 test_top1=0.560 test_top5=0.800 ep=92 331.6s
+V2 seed=0 val=0.626 test_top1=0.630 test_top5=0.860 ep=99 360.5s
+V2 seed=1 val=0.632 test_top1=0.620 test_top5=0.870 ep=104 374.4s
+V2 seed=2 val=0.632 test_top1=0.600 test_top5=0.890 ep=99 335.8s
+V3 seed=0 val=0.620 test_top1=0.630 test_top5=0.850 ep=97 311.1s
+V3 seed=1 val=0.607 test_top1=0.650 test_top5=0.850 ep=92 276.3s
+V3 seed=2 val=0.607 test_top1=0.650 test_top5=0.860 ep=104 276.3s
+V4 seed=0 val=0.607 test_top1=0.700 test_top5=0.870 ep=104 265.2s
+V4 seed=1 val=0.583 test_top1=0.650 test_top5=0.850 ep=92 234.0s
+V4 seed=2 val=0.613 test_top1=0.670 test_top5=0.860 ep=97 245.6s
+V5 seed=0 val=0.626 test_top1=0.690 test_top5=0.850 ep=98 267.8s
+V5 seed=1 val=0.601 test_top1=0.660 test_top5=0.830 ep=102 282.7s
+V5 seed=2 val=0.595 test_top1=0.620 test_top5=0.870 ep=104 292.5s
+V6 seed=0 val=0.669 test_top1=0.650 test_top5=0.840 ep=120 1050.3s
+V6 seed=1 val=0.656 test_top1=0.650 test_top5=0.860 ep=97 840.5s
+V6 seed=2 val=0.675 test_top1=0.680 test_top5=0.900 ep=117 997.6s
+V7 seed=0 val=0.656 test_top1=0.660 test_top5=0.870 ep=108 903.2s
+V7 seed=1 val=0.607 test_top1=0.660 test_top5=0.870 ep=118 907.5s
+V7 seed=2 val=0.650 test_top1=0.670 test_top5=0.870 ep=120 902.8s
+V0 baseline: raw image coords, NaN->0, no aug              test top1 0.453±0.031  top5 0.793  val 0.495
+V1 + body-centred normalisation                            test top1 0.557±0.005  top5 0.807  val 0.515
+V2 + hand-local shape coords                               test top1 0.617±0.012  top5 0.873  val 0.630
+V3 + gap interpolation + median smoothing                  test top1 0.643±0.009  top5 0.853  val 0.611
+V4 + idle trim + dominant-hand mirroring                   test top1 0.673±0.021  top5 0.860  val 0.601
+V5 + velocity features                                     test top1 0.657±0.029  top5 0.850  val 0.607
+V6 + augmentation (affine, temporal crop, hand dropout)    test top1 0.660±0.014  top5 0.867  val 0.667
+V7 + drop consistency-flagged TRAIN clips                  test top1 0.663±0.005  top5 0.870  val 0.638
