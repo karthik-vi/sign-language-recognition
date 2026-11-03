@@ -1,0 +1,9 @@
+[project]
+name = "slr"
+version = "0.1.0"
+description = "Reconstruction: video -> MediaPipe landmarks -> sign classifier, on public WLASL100"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

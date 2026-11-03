@@ -1,0 +1,7 @@
+# Tested 2026-11-03 on Python 3.12. CPU torch: pip install --index-url https://download.pytorch.org/whl/cpu torch==2.15.0
+mediapipe==1.2.0
+opencv-python-headless==5.0.0.93
+numpy==2.5.4
+scikit-learn==1.9.1
+torch==2.15.0
+pytest
