@@ -5,6 +5,11 @@ Landmarks: MediaPipe 1.2.0 HolisticLandmarker. Model: BiGRU + attention pooling 
 label smoothing 0.1, ≤120 epochs, early stopping on val top-1 (patience 30). Seeds 0, 1, 2. All runs 2026-11-03, CPU.
 Raw results: `results/ablation.json`, `results/ablation_log.txt`, `results/consistency.json`.
 
+## EXP-004 — Demo check
+
+- `scripts/train_best.py` retrained V6 (selected on val), seed 0, saved to `artifacts/best/` (not committed).
+- `scripts/demo.py --video` on held-out test clip 17713 (gloss *drink*, signer 21): sliding-window top-1 *drink* with p=0.93–0.94 on the last windows. One clip is a smoke check, not a metric. Log: `results/train_best_log.txt`.
+
 ## EXP-003 — Cumulative ablation: what moved accuracy (test = 100 clips, mean ± std over 3 seeds)
 
 | Variant | Change (cumulative) | Test top-1 | Test top-5 | Val top-1 |

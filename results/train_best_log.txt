@@ -1,0 +1,6 @@
+V6 + augmentation (affine, temporal crop, hand dropout) {'val': {'n': 163, 'top1': 0.6625766871165644, 'top5': 0.8588957055214724}, 'test': {'n': 100, 'top1': 0.68, 'top5': 0.86}}
+video 17713
+frame    48: drink 0.97 | white 0.00 | hot 0.00
+frame    64: drink 0.94 | white 0.00 | hot 0.00
+frame    80: drink 0.93 | white 0.01 | hearing 0.00
+{"video_id": "17713", "gloss": "drink", "split": "test", "signer_id": 21, "frame
